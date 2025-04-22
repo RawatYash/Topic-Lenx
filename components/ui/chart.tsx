@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react'
 import {
   BarChart as RechartsBarChart,
   Bar as RechartsBar,
@@ -11,22 +10,26 @@ import {
   ScatterChart as RechartsScatterChart,
   Scatter as RechartsScatter,
   ZAxis as RechartsZAxis,
-  TooltipProps
-} from 'recharts'
+} from 'recharts';
 
-export type {
-  TooltipProps
-}
+import type {
+  TooltipProps,
+} from 'recharts';
 
-// Re-export recharts components with proper types
-export const BarChart = RechartsBarChart
-export const Bar = RechartsBar
-export const XAxis = RechartsXAxis
-export const YAxis = RechartsYAxis
-export const CartesianGrid = RechartsCartesianGrid
-export const Tooltip = RechartsTooltip
-export const ResponsiveContainer = RechartsResponsiveContainer
-export const Cell = RechartsCell
-export const ScatterChart = RechartsScatterChart
-export const Scatter = RechartsScatter
-export const ZAxis = RechartsZAxis
+// ✅ Correct JSX-compatible typing
+import type { FunctionComponent } from 'react';
+
+// Explicitly cast to JSX-compatible types
+export const BarChart = RechartsBarChart;
+export const Bar = RechartsBar as unknown as FunctionComponent<any>;
+export const XAxis = RechartsXAxis as unknown as FunctionComponent<any>;
+export const YAxis = RechartsYAxis as unknown as FunctionComponent<any>;
+export const CartesianGrid = RechartsCartesianGrid as unknown as FunctionComponent<any>;
+export const Tooltip = RechartsTooltip as unknown as FunctionComponent<any>;
+export const ResponsiveContainer = RechartsResponsiveContainer;
+export const Cell = RechartsCell;
+export const ScatterChart = RechartsScatterChart;
+export const Scatter = RechartsScatter;
+export const ZAxis = RechartsZAxis as unknown as FunctionComponent<any>;
+
+export type { TooltipProps };
